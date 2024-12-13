@@ -9,8 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
-@Table(name = "BOOK")
-public class LivreBean implements Serializable{
+@Table(name = "MOVIE")
+public class MovieBean implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,11 +18,10 @@ public class LivreBean implements Serializable{
     @Column(name = "TITLE")
     private String title;
 
-    @Column(name = "AUTHOR")
-    private String author;
+    @Column(name = "NOTE")
+    private Integer note;
 
-    @Column(name = "FREE")
-    private Boolean free;
+    
 
     public Integer getId() {
         return id;
@@ -40,19 +39,15 @@ public class LivreBean implements Serializable{
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Integer getNote() {
+        return note;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setNote(Integer note) {
+        this.note = note;
     }
 
-    public Boolean getFree() {
-        return free;
-    }
+    
 
-    public void setFree(Boolean free) {
-        this.free = free;
-    }
+    
 }
