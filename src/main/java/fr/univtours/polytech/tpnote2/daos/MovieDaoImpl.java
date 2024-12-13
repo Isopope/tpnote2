@@ -14,8 +14,10 @@ public class MovieDaoImpl implements MovieDao{
 
     @Override
     public List<MovieBean> getAllMovies() {
-        Query request = em.createQuery("select l from movie l");
-        return request.getResultList();
+
+        Query req = em.createNativeQuery("SELECT * FROM movie", MovieBean.class);
+        return req.getResultList();
+
     }
 
     @Override
@@ -30,12 +32,16 @@ public class MovieDaoImpl implements MovieDao{
 
     @Override
     public void addMovie(MovieBean movieBean) {
+        if(movieBean.getNote()==null){
+            movieBean.setNote(0);
+        }
         em.persist(movieBean);
     }
-    @SuppressWarnings("unchecked")
+    
     @Override
     public void deleteMovie(MovieBean movieBean) {
-        em.remove(movieBean);
+        em.remove(em.merge(movieBean));
+
     }
 
 }

@@ -36,4 +36,36 @@ public class MovieBusinessImpl implements MovieBusiness{
         movieDao.deleteMovie(movieBean);
     }
 
+    @Override
+    public void increaseNote(int movieId) {
+        MovieBean movie=movieDao.getMovieById(movieId);
+        if(movie!=null){
+            Integer note=movie.getNote();
+            if(note==0){
+                movie.setNote(1);
+            }else if(note<5){
+                note=note+1;
+                movie.setNote(note);
+            }
+            movieDao.updateMovie(movie);
+        }
+        
+    }
+
+    @Override
+    public void decreaseNote(int movieId) {
+        MovieBean movie=movieDao.getMovieById(movieId);
+        if(movie!=null){
+            Integer note=movie.getNote();
+            if(note==0){
+                movie.setNote(5);
+            }else if(note>1){
+                note=note-1;
+                movie.setNote(note);
+            }
+            movieDao.updateMovie(movie);
+        }
+        
+    }
+
 }

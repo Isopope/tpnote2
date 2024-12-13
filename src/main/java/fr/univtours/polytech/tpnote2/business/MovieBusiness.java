@@ -10,5 +10,7 @@ public interface MovieBusiness {
     public MovieBean updateMovie(MovieBean movieBean);
     public void addMovie(MovieBean movieBean);
     public void deleteMovie(MovieBean movieBean);
+    public void increaseNote(int movieId);
+    public void decreaseNote(int movieId);
 
 }

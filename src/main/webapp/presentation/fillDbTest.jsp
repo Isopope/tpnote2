@@ -7,7 +7,6 @@
         <title>Liste des Livres</title>
     </head>
 <body>
-    <h1>Livres de la bibliothèque</h1>
     
     
 

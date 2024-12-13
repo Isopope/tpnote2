@@ -9,7 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
-@Table(name = "MOVIE")
+@Table(name="movie")
 public class MovieBean implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
